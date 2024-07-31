@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  p2p-node1:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12345"
+      PEER_ADDR: "p2p-node2:12346"
+    ports:
+      - "12345:12345"
+
+  p2p-node2:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12346"
+      PEER_ADDR: "p2p-node1:12345"
+    ports:
+      - "12346:12346"
+
+  p2p-node3:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12347"
+      PEER_ADDR: "p2p-node4:12348"
+    ports:
+      - "12347:12347"
+
+  p2p-node4:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12348"
+      PEER_ADDR: "p2p-node3:12347"
+    ports:
+      - "12348:12348"
+
+  p2p-node5:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12349"
+      PEER_ADDR: "p2p-node6:12350"
+    ports:
+      - "12349:12349"
+
+  p2p-node6:
+    build: .
+    environment:
+      NODE_ADDR: "0.0.0.0:12350"
+      PEER_ADDR: "p2p-node5:12349"
+    ports:
+      - "12350:12350"

@@ -1,0 +1,2 @@
+[workspace]
+members = ["endpoints", "p2p"]
