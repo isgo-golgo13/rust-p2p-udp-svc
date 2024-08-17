@@ -67,7 +67,7 @@ async fn main() {
     });
 
     loop {
-        if let Err(e) = p2p.send("Hello from Rust P2P!", &peer_addr).await {
+        if let Err(e) = p2p.send("Message Packet from P2P Node!", &peer_addr).await {
             eprintln!("Failed to send message: {:?}", e);
         }
         tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
